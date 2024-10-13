@@ -30,6 +30,7 @@ const Register = () => {
               <img src={eye} alt="" />
             </div>
             <label>UHID</label>
+            <select name="" id=""></select>
             <input type="text" />
             <button type="submit" className="btnsubmit">
               Submit
