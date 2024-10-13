@@ -1,11 +1,13 @@
 import React from 'react'
-import Header from './component/Header'
+import Inerface from './component/Interface'
+import Register from './component/Register'
 
 
 const App = () => {
   return (
     <>
-     <Header/>
+     {/* <Inerface/> */}
+<Register/>     
     </>
   )
 }

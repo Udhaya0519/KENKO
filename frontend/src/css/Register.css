@@ -1,0 +1,74 @@
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+.register {
+  background-image: url("../assets/images/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.register-wrapper {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 1fr 2fr;
+  justify-content: center;
+}
+
+.logoalign {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.toregister {
+  display: flex;
+  flex-direction: column;
+}
+
+.toregister > label {
+  margin: 10px 0px;
+  color: #a4a4a4;
+}
+
+.btnsubmit {
+  margin-top: 50px;
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  border: none;
+  padding: 12px 8px;
+  border-radius: 10px;
+  color: white;
+  font-size: medium;
+  font-family: "Poppins", sans-serif;
+}
+
+.inputbox {
+  background-color: #3c2c61;
+  border: none;
+  border: 1px solid #a4a4a4;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+}
+input {
+  background-color: #3c2c61;
+  border: none;
+  padding: 5px 5px;
+  font-size: 15px;
+  color: #a4a4a4;
+  width: 100%;
+}
+span {
+  font-size: 15px;
+  color: #a4a4a4;
+}
+input:focus {
+  outline: none;
+}
