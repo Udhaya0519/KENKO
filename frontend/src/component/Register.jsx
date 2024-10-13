@@ -1,10 +1,10 @@
 import React from "react";
 import logo from "../assets/images/logo.png";
-import phone from "../assets/images/phone.svg";
-import vector from "../assets/images/Vector.svg";
-import key from "../assets/images/key.svg";
-import eye from "../assets/images/eye.svg";
-import profile from "../assets/images/profile.svg";
+import phone from "../assets/icons/phone_icon.svg";
+import vector from "../assets/icons/search_icon.svg";
+import key from "../assets/icons/key_icon.svg";
+import eye from "../assets/icons/eye_icon.svg";
+import profile from "../assets/icons/user_icon.svg";
 import "../css/Register.css";
 
 const Register = () => {
@@ -30,8 +30,15 @@ const Register = () => {
               <img src={eye} alt="" />
             </div>
             <label>UHID</label>
-            <select name="" id=""></select>
-            <input type="text" />
+             <div>
+                <img src={profile} alt="profile" />
+                <span>7638976389</span>
+                <ul className="dropdown">
+                     <li>7638976893</li>
+                </ul>
+                
+             </div>
+
             <button type="submit" className="btnsubmit">
               Submit
             </button>
