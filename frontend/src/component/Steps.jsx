@@ -1,7 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "../css/Steps.css";
 import products from "../db";
 
+
+let valus;
 const Steps = () => {
   const canvasRef = useRef(null);
 
@@ -9,10 +11,12 @@ const Steps = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    const amplitude = 60; // Get amplitude
-    const canvasHeight = 1000; // Get canvas height
-    const lineThickness = 15; // Get line thickness
-    const frequency = 0.015; // Get wave frequency
+
+
+    const amplitude = 50; // Get amplitude
+    const canvasHeight =valus; // Get canvas height
+    const lineThickness = 25; // Get line thickness
+    const frequency = 0.01; //0.015 Get wave frequency
 
     canvas.height = canvasHeight;
 
@@ -43,7 +47,8 @@ const Steps = () => {
 
     for (let y = 0; y <= canvas.height; y++) {
       let x = 100 + Math.sin(y * frequency) * amplitude; // Calculate x position
-      if (Math.abs(Math.sin(y * frequency)) === 1) { // Check if it's a peak (1 or -1)
+      if (Math.abs(Math.sin(y * frequency)) === 1) {
+        // Check if it's a peak (1 or -1)
         ctx.beginPath();
         ctx.arc(x, y, 5, 0, Math.PI * 2, false); // Draw a circle for the peak
         ctx.fill(); // Fill the circle
@@ -59,57 +64,74 @@ const Steps = () => {
     drawWavyLine();
   }, []); // Draw only once on initial render
 
-  let elemt = []
+  const [lengthchecker , setlengthchecker ] = useState(3)
+  const [statelength , setstatelength ] = useState(lengthchecker)
 
- for (let index = 3; index >=1; index--) {
-       elemt.push(index)
- }
-
-
-let chn;
-
-function changeable(el)
-{   
-  if(elemt.length-(elemt.length-1) === el){
-       chn = "ts"
-  }else{
-      chn = "st"
+function access(){
       
+   products.forEach((el)=>{
+      if(el.testNO === statelength){
+        valus = el.length
+      }
+   })
+    
+}
+access()
+  const [mouseEnter, mouseleave] = useState(null);
+  function handleMouseenter(index) {
+    mouseleave(index);
   }
-  return chn 
-}
-
-let md;
-function tomode(el)
-{
-    if(elemt.length-(elemt.length-1) === el){
-        md = "change"
-   }else{
-        md = ""
-       
-   }
-   return md; 
-}
-
-
+  function handleMouseleave() {
+    mouseleave(null);
+  }
   return (
     <section className="steps">
-      <div className="contain">
-        <div className="canvapre">
-          <canvas ref={canvasRef} width="200"  height='400'>
-          </canvas>
-          <div className="summa">
-            {
-                elemt.map((el,index)=>(
-                      <h1 key={index}   className={tomode(el)}><span className={changeable(el)}>{el}</span></h1>
-                ))
-
-            }
-          </div>
+      <div className="canvapre">
+        <canvas ref={canvasRef} width="200" height="400"></canvas>
+        <div className="levels">
+          <ul>
+            {products.map((el, index) => (
+                  
+                el.testNO <=lengthchecker ? 
+                <>     
+                <li
+                key={index}
+                onMouseLeave={() => {
+                  handleMouseleave();
+                }}
+                onMouseEnter={() => {
+                  handleMouseenter(index);
+                }}
+                style={{
+                  height: mouseEnter === index ? "120px" : "120px",
+                  width: mouseEnter === index ? "270px" : "120px",
+                  borderRadius: mouseEnter === index ? "100px" : "50%",
+                  marginLeft: mouseEnter === index ? "-50px" : "0",
+                }}
+              >
+                <img
+                  width="60"
+                  height="60"
+                  src={`/src/assets/steps/${el.img}`}
+                  alt=""
+                />
+                <div
+                  style={{
+                    display: mouseEnter === index ? "block" : "none",
+                    maxWidth: mouseEnter === index ? "180px" : 0,
+                    paddingLeft: mouseEnter === index ? "10px" : "0px",
+                  }}
+                >
+                  <h4>{el.testName}</h4>
+                  <h4>{el.venue}</h4>
+                </div>
+              </li>
+              </>  : <></>
+            ))
+          }
+          </ul>
         </div>
-        </div>
-       
-     
+      </div>
     </section>
   );
 };

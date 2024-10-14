@@ -1,17 +1,16 @@
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-
+ul > li {
+  list-style-type: none;
+}
 
 .register {
-  background-image: url("../assets/images/bg.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 100vh;
+  background-color: #1d0a4c;
 }
 .register-wrapper {
   display: grid;
@@ -41,14 +40,15 @@ input[type='number']::-webkit-inner-spin-button {
   background: linear-gradient(to right, #8e2de2, #4a00e0);
   border: none;
   padding: 12px 8px;
-  border-radius: 10px;
+  border-radius: 15px;
   color: white;
   font-size: medium;
   font-family: "Poppins", sans-serif;
 }
 
 .inputbox {
-  background-color: #3c2c61;
+  background: radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.0447917) 77.08%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(12.156224250793457px);
   border: none;
   border: 1px solid #a4a4a4;
   padding: 10px;
@@ -57,10 +57,34 @@ input[type='number']::-webkit-inner-spin-button {
   align-items: center;
   padding: 10px 15px;
 }
+.testcase {
+  height: 100px;
+}
+
+.uhidnumber {
+  background: radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.0447917) 77.08%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(12.156224250793457px);
+  border: none;
+  border: 1px solid #a4a4a4;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  justify-content: space-between;
+}
+
+.uhidnumber > div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 input {
-  background-color: #3c2c61;
+  background-color: transparent;
   border: none;
   padding: 5px 5px;
+  padding-top: 6px;
   font-size: 15px;
   color: #a4a4a4;
   width: 100%;
@@ -71,4 +95,26 @@ span {
 }
 input:focus {
   outline: none;
+}
+.dropdown {
+  margin: 0px 0px;
+  z-index: 1000 !important;
+  position: relative;
+}
+
+.dropdown > li {
+  background-color: #3c2c61;
+  padding: 10px 8px;
+  border: 1px solid #a4a4a4;
+  color: #a4a4a4;
+}
+
+.dropdown > li:nth-child(1) {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdown > li:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
