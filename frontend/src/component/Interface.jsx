@@ -8,7 +8,7 @@ const Inerface = () => {
     <section className="front">
          <div>
               <div className="front-wrapper">
-                  <img src={logo} alt="logo" />
+                  <img className="intrologo " src={logo} alt="logo" />
                  <Link to="/login" style={{textDecoration:"none"}} ><h3 className="tap" >Tap to begin</h3></Link>       
               </div>
          </div>
