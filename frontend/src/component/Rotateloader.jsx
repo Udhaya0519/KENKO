@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../css/rotateloader.css";
-import RotateLogo from "../assets/images/rotatelogo.svg"; // Ensure you have the correct path for the logo
+import RotateLogo from "/assets/images/rotatelogo.svg"; // Ensure you have the correct path for the logo
 import { useNavigate } from "react-router";
 
 

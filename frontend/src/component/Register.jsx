@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import logo from "../assets/images/logo.png";
-import phone from "../assets/icons/phone_icon.svg";
-import vector from "../assets/icons/search_icon.svg";
-import key from "../assets/icons/key_icon.svg";
-import eye from "../assets/icons/eye_icon.svg";
-import profile from "../assets/icons/user_icon.svg";
+import logo from "/assets/images/logo.png";
+import phone from "/assets/icons/phone_icon.svg";
+import vector from "/assets/icons/search_icon.svg";
+import key from "/assets/icons/key_icon.svg";
+import eye from "/assets/icons/eye_icon.svg";
+import profile from "/assets/icons/user_icon.svg";
 import "../css/Register.css";
-import dropdown from "../assets/icons/dropdown.svg";
-import eye_W from "../assets/icons/eye_W.svg";
+import dropdown from "/assets/icons/dropdown.svg";
+import eye_W from "/assets/icons/eye_W.svg";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -57,7 +57,7 @@ const Register = () => {
             <div className="inputbox">
               <img src={phone} alt="" />
               <span style={{ fontSize: "15px", marginLeft: "8px" }}>+91</span>
-              <input
+              <input className="regnumber"
                 type="number"
                 value={phonerNumber}
                 onChange={(e) => {

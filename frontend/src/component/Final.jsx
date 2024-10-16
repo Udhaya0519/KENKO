@@ -1,6 +1,6 @@
 import React from 'react'
 import "../css/final.css"
-import  final  from "../assets/images/rotatelogo.svg"
+import  final  from "/assets/images/rotatelogo.svg"
 
 const Final = () => {
   return (

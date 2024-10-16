@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/loader.css";
-import ecg from "../assets/icons/ecgloader.svg";
+import ecg from "/assets/icons/ecgloader.svg";
 
 const Loader = () => {
   return (

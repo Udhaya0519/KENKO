@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../css/spinner.css';
 import ApexCharts from 'apexcharts';
-import e from "../assets/steps/image1.svg"
-import h from "../assets/steps/image2.svg"
-import w from "../assets/steps/image3.svg"
+import e from "/assets/steps/image1.svg"
+import h from "/assets/steps/image2.svg"
+import w from "/assets/steps/image3.svg"
 import { useNavigate } from "react-router-dom";
 
 const Spinner = () => {
@@ -88,9 +88,9 @@ const Spinner = () => {
             setTimeout(()=>{pathput("/final")},2500)
             
           }
-          testNumberImage[0].src = `/src/assets/steps/image${testNumber[0]}.svg`;
-          testNumberImage[1].src = `/src/assets/steps/image${testNumber[1]}.svg`;
-          testNumberImage[2].src = `/src/assets/steps/image${testNumber[2]}.svg`;
+          testNumberImage[0].src = `/assets/steps/image${testNumber[0]}.svg`;
+          testNumberImage[1].src = `/assets/steps/image${testNumber[1]}.svg`;
+          testNumberImage[2].src = `/assets/steps/image${testNumber[2]}.svg`;
 
           circleText.forEach((text) => text.classList.add('animate-in'));
           testNumberImage.forEach((img) => img.classList.add('animate-in'));

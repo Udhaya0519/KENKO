@@ -139,7 +139,7 @@ const Steps = () => {
                     <img
                       width="60"
                       height="60"
-                      src={`/src/assets/steps/${el.img}`}
+                      src={`/assets/steps/${el.img}`}
                       alt=""
                     />
                     <div

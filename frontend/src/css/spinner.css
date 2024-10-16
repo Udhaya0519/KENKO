@@ -13,7 +13,7 @@ body {
 }
 
 .circle-container {
-  background-image: url(../assets/images/Ellipse.svg);
+  background-image: url(/assets/images/Ellipse.svg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
