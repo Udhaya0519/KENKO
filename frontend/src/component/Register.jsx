@@ -49,7 +49,7 @@ const Register = () => {
       <div className="container">
         <div className="register-wrapper">
           <div className="logoalign">
-            <img src={logo} alt="" />
+            <img className="register-logo" src={logo} alt="" />
           </div>
 
           <form className="toregister">
