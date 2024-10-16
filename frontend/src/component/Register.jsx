@@ -7,23 +7,41 @@ import eye from "../assets/icons/eye_icon.svg";
 import profile from "../assets/icons/user_icon.svg";
 import "../css/Register.css";
 import dropdown from "../assets/icons/dropdown.svg";
+import eye_W from "../assets/icons/eye_W.svg";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const uhidNumber = [2222111, 2344441, 2456666, 2456666];
   const [spanText, setspantext] = useState(12345555);
   const [isopen, setopen] = useState(false);
   const [showpass, hidepass] = useState(false);
+  const [phonerNumber, setphonerNumber] = useState("");
+  const [otp, setotp] = useState("");
+  const [uhid, setuhid] = useState("");
+  const pathput = useNavigate();
+
   function handledropdown() {
     setopen(!isopen);
   }
 
   function handleText(el) {
     setspantext(el);
+    setuhid(el);
     setopen(!open);
   }
 
   function showPassword() {
     hidepass(!showpass);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (phonerNumber == 1111 || otp == 1111) {
+      pathput("/levels");
+    }
+    setotp("");
+    setphonerNumber("");
+    setspantext(12345555);
   }
 
   return (
@@ -33,19 +51,35 @@ const Register = () => {
           <div className="logoalign">
             <img src={logo} alt="" />
           </div>
+
           <form className="toregister">
             <label>Mobile Number</label>
             <div className="inputbox">
               <img src={phone} alt="" />
-              <span style={{ fontSize: "15px",marginLeft:"8px" }}>+91</span>
-              <input type="number" required style={{ fontSize: "15px" }} />
+              <span style={{ fontSize: "15px", marginLeft: "8px" }}>+91</span>
+              <input
+                type="number"
+                value={phonerNumber}
+                onChange={(e) => {
+                  setphonerNumber(e.target.value);
+                }}
+                required
+                style={{ fontSize: "15px" }}
+              />
               <img src={vector} alt="" />
             </div>
             <label>OTP</label>
             <div className="inputbox">
-              <img src={key} alt="" style={{margin:"5px"}} />
-              <input type={showpass ? "text" : "password"} required />
-              <img src={eye} alt="" onClick={showPassword} />
+              <img src={key} alt="" style={{ margin: "5px" }} />
+              <input
+                type={showpass ? "text" : "password"}
+                value={otp}
+                onChange={(e) => {
+                  setotp(e.target.value);
+                }}
+                required
+              />
+              <img src={showpass ? eye_W : eye} alt="" onClick={showPassword} />
             </div>
             <label>UHID</label>
             <div className="testcase">
@@ -71,7 +105,7 @@ const Register = () => {
               >
                 {uhidNumber.map((el, index) => (
                   <li
-                    key={index}
+                    key={`${el}-${index}`}
                     onClick={() => {
                       handleText(el);
                     }}
@@ -81,8 +115,13 @@ const Register = () => {
                 ))}
               </ul>
             </div>
-
-            <button type="submit" className="btnsubmit">
+            <button
+              type="submit"
+              className="btnsubmit"
+              onClick={(e) => {
+                handleSubmit(e);
+              }}
+            >
               Submit
             </button>
           </form>

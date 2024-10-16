@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/images/logo.png";
 import "../css/Interface.css"
-
+import  { Link }  from "react-router-dom"
 
 const Inerface = () => {
   return (
@@ -9,7 +9,7 @@ const Inerface = () => {
          <div>
               <div className="front-wrapper">
                   <img src={logo} alt="logo" />
-                  <h3 className="tap" >Tap to begin</h3>     
+                 <Link to="/login" style={{textDecoration:"none"}} ><h3 className="tap" >Tap to begin</h3></Link>       
               </div>
          </div>
     </section>

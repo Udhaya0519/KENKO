@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -47,7 +53,12 @@ ul > li {
 }
 
 .inputbox {
-  background: radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.0447917) 77.08%, rgba(255, 255, 255, 0) 100%);
+  background: radial-gradient(
+    90.16% 143.01% at 15.32% 21.04%,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.0447917) 77.08%,
+    rgba(255, 255, 255, 0) 100%
+  );
   backdrop-filter: blur(12.156224250793457px);
   border: none;
   border: 1px solid #a4a4a4;
@@ -62,7 +73,12 @@ ul > li {
 }
 
 .uhidnumber {
-  background: radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.0447917) 77.08%, rgba(255, 255, 255, 0) 100%);
+  background: radial-gradient(
+    90.16% 143.01% at 15.32% 21.04%,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.0447917) 77.08%,
+    rgba(255, 255, 255, 0) 100%
+  );
   backdrop-filter: blur(12.156224250793457px);
   border: none;
   border: 1px solid #a4a4a4;

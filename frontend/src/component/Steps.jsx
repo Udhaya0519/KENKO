@@ -1,20 +1,16 @@
 import React, { useRef, useEffect, useState } from "react";
 import "../css/Steps.css";
 import products from "../db";
-
-
+import Loader from "./Loader";
 let valus;
 const Steps = () => {
   const canvasRef = useRef(null);
-
   const drawWavyLine = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-
-
     const amplitude = 50; // Get amplitude
-    const canvasHeight =valus; // Get canvas height
+    const canvasHeight = valus; // Get canvas height
     const lineThickness = 25; // Get line thickness
     const frequency = 0.01; //0.015 Get wave frequency
 
@@ -58,25 +54,35 @@ const Steps = () => {
       }
     }
   };
-
   // Initial rendering effect to draw the line
   useEffect(() => {
     drawWavyLine();
   }, []); // Draw only once on initial render
 
-  const [lengthchecker , setlengthchecker ] = useState(3)
-  const [statelength , setstatelength ] = useState(lengthchecker)
+  const [lengthchecker, setlengthchecker] = useState(20);
+  const [statelength, setstatelength] = useState(lengthchecker);
+  const [showLoader, setShowLoader] = useState(true); // State to control loader visibility
+  const [showMainContent, setShowMainContent] = useState(false); // State to control main content visibility
 
-function access(){
-      
-   products.forEach((el)=>{
-      if(el.testNO === statelength){
-        valus = el.length
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLoader(false); // Hide loader
+      setShowMainContent(true); // Show main content
+    }, 3000); // 3000 milliseconds delay
+
+    // Cleanup function
+    return () => clearTimeout(timer);
+  }, []);
+
+  function access() {
+    products.forEach((el) => {
+      if (el.testNO === statelength) {
+        valus = el.length;
       }
-   })
-    
-}
-access()
+    });
+  }
+
+  access();
   const [mouseEnter, mouseleave] = useState(null);
   function handleMouseenter(index) {
     mouseleave(index);
@@ -84,55 +90,79 @@ access()
   function handleMouseleave() {
     mouseleave(null);
   }
+
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    if (showMainContent && footerRef.current) {
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  }, [showMainContent]);
+
+  const footerStyle = {
+    backgroundColor: "#1D0A4C",
+    color: "#1D0A4C",
+    textAlign: "center",
+    position: "absolute",
+    bottom: "0",
+    left: "0",
+  };
+
   return (
-    <section className="steps">
-      <div className="canvapre">
-        <canvas ref={canvasRef} width="200" height="400"></canvas>
-        <div className="levels">
-          <ul>
-            {products.map((el, index) => (
-                  
-                el.testNO <=lengthchecker ? 
-                <>     
-                <li
-                key={index}
-                onMouseLeave={() => {
-                  handleMouseleave();
-                }}
-                onMouseEnter={() => {
-                  handleMouseenter(index);
-                }}
-                style={{
-                  height: mouseEnter === index ? "120px" : "120px",
-                  width: mouseEnter === index ? "270px" : "120px",
-                  borderRadius: mouseEnter === index ? "100px" : "50%",
-                  marginLeft: mouseEnter === index ? "-50px" : "0",
-                }}
-              >
-                <img
-                  width="60"
-                  height="60"
-                  src={`/src/assets/steps/${el.img}`}
-                  alt=""
-                />
-                <div
-                  style={{
-                    display: mouseEnter === index ? "block" : "none",
-                    maxWidth: mouseEnter === index ? "180px" : 0,
-                    paddingLeft: mouseEnter === index ? "10px" : "0px",
-                  }}
-                >
-                  <h4>{el.testName}</h4>
-                  <h4>{el.venue}</h4>
-                </div>
-              </li>
-              </>  : <></>
-            ))
-          }
-          </ul>
+    <div>
+      {showLoader && <Loader style={{ overflow: "hidden", height: "100vh" }} />}
+      <section
+        className="steps"
+        style={{ display: showMainContent ? "block" : "none" }}
+      >
+        <div className="canvapre">
+          <canvas ref={canvasRef} width="200" height="400"></canvas>
+          <div className="levels">
+            <ul>
+              {products.map((el, index) =>
+                el.testNO <= lengthchecker ? (
+                  <li
+                    key={el.testNO || `item-${index}`}
+                    onMouseLeave={() => {
+                      handleMouseleave();
+                    }}
+                    onMouseEnter={() => {
+                      handleMouseenter(index);
+                    }}
+                    style={{
+                      height: mouseEnter === index ? "120px" : "120px",
+                      width: mouseEnter === index ? "270px" : "120px",
+                      borderRadius: mouseEnter === index ? "100px" : "50%",
+                      marginLeft: mouseEnter === index ? "-50px" : "0",
+                    }}
+                  >
+                    <img
+                      width="60"
+                      height="60"
+                      src={`/src/assets/steps/${el.img}`}
+                      alt=""
+                    />
+                    <div
+                      style={{
+                        display: mouseEnter === index ? "block" : "none",
+                        maxWidth: mouseEnter === index ? "180px" : 0,
+                        paddingLeft: mouseEnter === index ? "10px" : "0px",
+                      }}
+                    >
+                      <h4>{el.testName}</h4>
+                      <h4>{el.venue}</h4>
+                    </div>
+                  </li>
+                ) : null
+              )}
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <footer style={footerStyle} ref={footerRef}>
+        .
+      </footer>
+    </div>
   );
 };
 
