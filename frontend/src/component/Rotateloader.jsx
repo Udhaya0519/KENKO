@@ -11,10 +11,9 @@ const RotateLoader = () => {
   const  [p, setP] = useState(0.6); // Transition duration
  
 const pathput = useNavigate()
- if(n === 360){
-    pathput("/spinner")
- }
-
+ if(n >= 360){
+  setTimeout(()=>{ pathput("/spinner")},1000)
+  }
   useEffect(() => {
     const change = () => {
       if (n < 360) {
