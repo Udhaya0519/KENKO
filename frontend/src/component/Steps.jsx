@@ -2,7 +2,16 @@ import React, { useRef, useEffect, useState } from "react";
 import "../css/Steps.css";
 import products from "../db";
 import Loader from "./Loader";
+import "../css/popup.css"
+import { FaCheckCircle } from "react-icons/fa";
 let valus;
+
+
+
+
+
+
+
 const Steps = () => {
   const canvasRef = useRef(null);
   const drawWavyLine = () => {
@@ -63,6 +72,10 @@ const Steps = () => {
   const [statelength, setstatelength] = useState(lengthchecker);
   const [showLoader, setShowLoader] = useState(true); // State to control loader visibility
   const [showMainContent, setShowMainContent] = useState(false); // State to control main content visibility
+  const [ popup, setpopup ] = useState(false)
+  const [hide , sethide ] = useState(false)
+  const [ toplaceCheck , settoplaceCheck ] = useState(false)
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -84,14 +97,34 @@ const Steps = () => {
 
   access();
   const [mouseEnter, mouseleave] = useState(null);
+  const [ ysebtnCheck , setyesbtnCheck ] = useState(null) 
+
   function handleMouseenter(index) {
+     setyesbtnCheck(index)
     mouseleave(index);
+    setpopup(true)
+    sethide(true)
   }
+
+
   function handleMouseleave() {
     mouseleave(null);
   }
 
   const footerRef = useRef(null);
+
+ 
+
+  function handleYes()
+{   
+    settoplaceCheck(mouseEnter)
+    mouseleave(ysebtnCheck)
+    setpopup(false)
+    sethide(false)
+}
+ 
+ document.body.style.overflow = hide ? "hidden" :"scroll"
+ 
 
   useEffect(() => {
     if (showMainContent && footerRef.current) {
@@ -152,12 +185,27 @@ const Steps = () => {
                       <h4>{el.testName}</h4>
                       <h4>{el.venue}</h4>
                     </div>
+                    <div className="checkbox"  style={{display:toplaceCheck===index ? "flex" :"none"}}>
+                    <FaCheckCircle className="checkbox-wrapper" style={{ color:"#28A745",fontSize: '30px' }}  />
+                    </div>
                   </li>
                 ) : null
               )}
             </ul>
           </div>
         </div>
+        <section className="popup"  style={{display:popup ? "block" : "none"}}>
+             <div className="popup-wrapper">
+                   <p>
+                      Did you Complete the test ?
+                   </p>
+                   <span>{}</span>
+                   <div>
+                      <button  onClick={handleYes} >Yes</button>
+                      <button>No</button>
+                   </div>
+             </div>
+        </section>
       </section>
       <footer style={footerStyle} ref={footerRef}>
         .
@@ -167,3 +215,7 @@ const Steps = () => {
 };
 
 export default Steps;
+
+
+
+
