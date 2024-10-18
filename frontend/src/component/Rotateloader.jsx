@@ -9,10 +9,11 @@ const RotateLoader = () => {
   const  [n, setN] = useState(0); // Angle for rotation
   const  [m, setM] = useState(1000); // Delay between rotations
   const  [p, setP] = useState(0.6); // Transition duration
- 
+  const testNumber = 2
 const pathput = useNavigate()
  if(n >= 360){
-  setTimeout(()=>{ pathput("/spinner")},1000)
+  let check = testNumber === 2 ?  setTimeout(()=>{ pathput("/final")},1000) : setTimeout(()=>{ pathput("/spinner")},1000)
+  
   }
   useEffect(() => {
     const change = () => {

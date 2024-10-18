@@ -57,51 +57,67 @@ const Spinner = () => {
     const circleText = document.querySelectorAll(".circle-test-text");
     const testNumberImage = document.querySelectorAll(".number-image");
     const testNumber = [1, 2, 3];
-    let n = 6;
+    let n = 3;
 
     // Add the animate-in class initially to display the first set of text and images
     circleText.forEach((text) => text.classList.add('animate-in'));
     testNumberImage.forEach((img) => img.classList.add('animate-in'));
 
-
-
-    function change() {
-      if (testNumber[2] > n) return;
-   
-      else if(testNumber[2] < n) {
-      setTimeout(() => {
-        // Update test numbers
-        testNumber[0] = n % 2 === 0 ? testNumber[0] + 1 : testNumber[0] + 2;
-        testNumber[1] = n % 2 === 0 ? testNumber[1] + 1 : testNumber[1] + 2;
-        testNumber[2] = n % 2 === 0 ? testNumber[2] + 1 : testNumber[2] + 2;
-
-        // Remove animation class before updating text and images
-        circleText.forEach((text) => text.classList.remove('animate-in'));
-        testNumberImage.forEach((img) => img.classList.remove('animate-in'));
-
-        // Short delay before updating content and re-adding animation class
+    
+  
+      function change() {
+      
+        if (testNumber[2] > n) return;
+  
+        else if(testNumber[2] === n){
+          setTimeout(()=>{pathput("/final")},2500)
+          
+        }
+     
+        else if(testNumber[2] < n) {
+          
         setTimeout(() => {
-          circleText[0].innerText = `Test ${testNumber[0]}`;
-          circleText[1].innerText = `Test ${testNumber[1]}`;
-          circleText[2].innerText = `Test ${testNumber[2]}`;
-          if (circleText[2].innerText === `Test ${n}`){
-            setTimeout(()=>{pathput("/final")},2500)
+          // Update test numbers
+          testNumber[0] = n % 2 === 0 ? testNumber[0] + 1 : testNumber[0] + 2;
+          testNumber[1] = n % 2 === 0 ? testNumber[1] + 1 : testNumber[1] + 2;
+          testNumber[2] = n % 2 === 0 ? testNumber[2] + 1 : testNumber[2] + 2;
+  
+          // Remove animation class before updating text and images
+          circleText.forEach((text) => text.classList.remove('animate-in'));
+          testNumberImage.forEach((img) => img.classList.remove('animate-in'));
+  
+          // Short delay before updating content and re-adding animation class
+          setTimeout(() => {
+            circleText[0].innerText = `Test ${testNumber[0]}`;
+            circleText[1].innerText = `Test ${testNumber[1]}`;
+            circleText[2].innerText = `Test ${testNumber[2]}`;
             
-          }
-          testNumberImage[0].src = `/assets/steps/image${testNumber[0]}.svg`;
-          testNumberImage[1].src = `/assets/steps/image${testNumber[1]}.svg`;
-          testNumberImage[2].src = `/assets/steps/image${testNumber[2]}.svg`;
+            if (circleText[2].innerText === `Test ${n}`){
+              setTimeout(()=>{pathput("/final")},2500)
+              console.log(1);
+              
+            }
+            testNumberImage[0].src = `/assets/steps/image${testNumber[0]}.svg`;
+            testNumberImage[1].src = `/assets/steps/image${testNumber[1]}.svg`;
+            testNumberImage[2].src = `/assets/steps/image${testNumber[2]}.svg`;
+  
+            circleText.forEach((text) => text.classList.add('animate-in'));
+            testNumberImage.forEach((img) => img.classList.add('animate-in'));
+          }, 1000);
+  
+          change();
+        console.log(circleText[2].innerText);
+        
+        }, 2500);
+  
+  
+      }
+  }
+      change();
+    
 
-          circleText.forEach((text) => text.classList.add('animate-in'));
-          testNumberImage.forEach((img) => img.classList.add('animate-in'));
-        }, 1000);
-
-        change();
-      }, 2500);
-
-    }
-}
-    change();
+    
+    
   }, []);
 
   return (

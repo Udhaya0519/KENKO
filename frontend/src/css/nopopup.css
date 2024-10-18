@@ -18,14 +18,13 @@
     height:40vh;
     width: 80vw;
     position: relative;
-    top: 30%;
-    left: 10%; 
+    top: 50%;
+    margin: 0 auto;
+    transform: translateY(-50%);
     padding: 10px 30px;
 }
 
 .nopopup-wrapper >p{
-  /* font-size:15px;
-  font-family: "poppins"; */
   font-size:16px;
   font-family: "poppins";
   font-weight: 300;
