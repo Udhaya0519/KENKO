@@ -348,13 +348,14 @@ function getRandomColor() {
             <p>Did you Complete the test ?</p>
             <div>
               <button
+                className="yesbtn"
                 onClick={(e) => {
                   handleYes(e);
                 }}
               >
                 Yes
               </button>
-              <button onClick={handleNo}>No</button>
+              <button className="nobtn" onClick={handleNo}>No</button>
             </div>
           </div>
         </section>
