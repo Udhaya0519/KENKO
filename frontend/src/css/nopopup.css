@@ -1,0 +1,39 @@
+
+.nopopup{
+    position:fixed;
+    top: 0%;
+    height: 100vh;
+    width: 100vw;
+    left: 0%;
+    backdrop-filter:blur(10px);
+}
+
+.nopopup-wrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    background-color:white;
+    border-radius: 5px;
+    height:50vh;
+    width: 80vw;
+    position: relative;
+    top: 25%;
+    left: 10%; 
+    padding: 30px;
+}
+
+.nopopup-wrapper >p{
+  font-size:15px;
+  font-family: "poppins";
+}
+
+.nopopup-wrapper>div >button{
+    border: none;
+    background-color:yellow;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+

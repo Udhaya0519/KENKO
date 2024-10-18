@@ -6,12 +6,13 @@ import { BrowserRouter , Routes , Route } from "react-router-dom"
 import RotateLoader from './component/Rotateloader'
 import Spinner from "./component/Spinner"
 import Final from './component/Final'
+import CompletedShow from './component/CompletedShow'
 
 
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+     <BrowserRouter>
       <Routes>
             <Route path='/' element={<Inerface/>}/>               
             <Route path='/login' element={<Register/>}/>               
@@ -19,8 +20,9 @@ const App = () => {
            <Route path='/loader'  element={<RotateLoader/>}  />
            <Route path="/spinner"  element={<Spinner/>} />
            <Route path="/Final"  element={<Final/>} />
+           <Route path="/completed"  element={<CompletedShow/>} />
            </Routes>
-     </BrowserRouter> 
+     </BrowserRouter>  
     </>
   )
 }

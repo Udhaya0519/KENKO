@@ -37,7 +37,7 @@ const Register = () => {
   function handleSubmit(e) {
     e.preventDefault();
     if (phonerNumber == 1111 || otp == 1111) {
-      pathput("/levels");
+      pathput("/levels");      
     }
     setotp("");
     setphonerNumber("");

@@ -23,7 +23,6 @@ ul > li {
   display: grid;
   grid-template-rows: 0.5fr 2fr;
   height: 100vh;
-
   justify-content: center;
 }
 
