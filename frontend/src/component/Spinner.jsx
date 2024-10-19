@@ -57,7 +57,7 @@ const Spinner = () => {
     const circleText = document.querySelectorAll(".circle-test-text");
     const testNumberImage = document.querySelectorAll(".number-image");
     const testNumber = [1, 2, 3];
-    let n = 3;
+    let n = 5;
 
     // Add the animate-in class initially to display the first set of text and images
     circleText.forEach((text) => text.classList.add('animate-in'));

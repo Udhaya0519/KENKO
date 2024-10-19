@@ -66,7 +66,7 @@ const Steps = () => {
   }, []); // Draw only once on initial render
 
   // to set Number of Test
-  const [lengthchecker, setlengthchecker] = useState(3);
+  const [lengthchecker, setlengthchecker] = useState(5);
   const [statelength, setstatelength] = useState(lengthchecker);
 
   // State to control loader visibility
