@@ -28,11 +28,11 @@ const Spinner = () => {
           colors: ['#fff'],
         },
       },
-      series: [20, 20, 20, 20, 20, 20], // Pie chart data
+      series: [20, 20, 20, 20, 20, 20],  // Pie chart data
       colors: ['#0A2724'],
       stroke: {
-        width: 2,
-        colors: ['rgba(255, 255, 255, 0)'],
+        width: 1,
+        colors: ['#cb9749'],
       },
       legend: {
         show: false,
