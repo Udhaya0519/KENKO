@@ -283,10 +283,14 @@ function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-const  [ initialpopup , setinitialpopup ] = useState(true)
+const  [ initialpopup , setinitialpopup ] = useState(false)
+
+setTimeout(()=>{
+    setinitialpopup(true)
+},4000)
 
 function handleContinue(){
-          setinitialpopup(false) 
+             setinitialpopup(false);
 }
 
   return (
