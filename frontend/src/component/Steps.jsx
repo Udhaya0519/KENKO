@@ -282,8 +282,11 @@ function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
+const  [ initialpopup , setinitialpopup ] = useState(true)
 
-
+function handleContinue(){
+          setinitialpopup(false)    
+}
 
   return (
     <div>
@@ -323,9 +326,7 @@ function getRandomColor() {
                           : "circle__innerText"
                       }
                     >
-                      <h4>
-                        {el.testName}
-                      </h4>
+                      <h4>{el.testName}</h4>
                       <h4>{el.venue}</h4>
                     </div>
                     <div className="checkboxhide" value={index}>
@@ -355,7 +356,9 @@ function getRandomColor() {
               >
                 Yes
               </button>
-              <button className="nobtn" onClick={handleNo}>No</button>
+              <button className="nobtn" onClick={handleNo}>
+                No
+              </button>
             </div>
           </div>
         </section>
@@ -370,6 +373,20 @@ function getRandomColor() {
             </p>
             <div>
               <button onClick={handleGoBack}>Go Back</button>
+            </div>
+          </div>
+        </section>
+        <section
+          className="initialpopup"
+          style={{ display: initialpopup ? "block" : "none"}}
+        >
+          <div className="initialpopup-wrapper">
+            <p>
+              Please complete this test within 15 minutes. You won't be able to
+              move to the next test.
+            </p>
+            <div>
+              <button onClick={handleContinue}>Continue</button>
             </div>
           </div>
         </section>
