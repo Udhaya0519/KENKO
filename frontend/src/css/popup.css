@@ -94,8 +94,8 @@
     align-items:center;
     background-color: #ffffff;
     border-radius: 9px;
-    height:30vh;
-    width: 80vw;
+    height:60vh;
+    width: 90vw;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -104,16 +104,16 @@
     box-shadow: 10px 10px  15px 5px rgba(0, 0, 0, 0.3);
 }
 
+.initialpopup-wrapper >ul >li {
+  margin-bottom: 10px;
+  
+}
 
-.initialpopup-wrapper > div >button{
-  padding: 5px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-    font-family: "poppins";
-    background: linear-gradient(90deg, #3a7bd5, #00d2ff);
-    color: #ffffff;
-    font-size: 16px;
-    border: none;
+.xmark {
+  color: #00d2ff;
+ position: fixed;
+  right:20px;           /* Move to the right edge of the viewport */
+  top: 20px;
+  font-size: 30px;
+  color:#3a7bd5;   
 }

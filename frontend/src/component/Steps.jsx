@@ -6,7 +6,8 @@ import "../css/popup.css";
 import "../css/nopopup.css";
 import { FaCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
- 
+import { FaXmark } from "react-icons/fa6"; 
+
 // to draw canvas line 
 let valus;
 const Steps = () => {
@@ -285,7 +286,7 @@ function getRandomColor() {
 const  [ initialpopup , setinitialpopup ] = useState(true)
 
 function handleContinue(){
-          setinitialpopup(false)    
+          setinitialpopup(false) 
 }
 
   return (
@@ -378,16 +379,21 @@ function handleContinue(){
         </section>
         <section
           className="initialpopup"
-          style={{ display: initialpopup ? "block" : "none"}}
+          style={{ display: initialpopup ? "block" : "none" }}
         >
           <div className="initialpopup-wrapper">
-            <p>
-              Please complete this test within 15 minutes. You won't be able to
-              move to the next test.
-            </p>
-            <div>
-              <button onClick={handleContinue}>Continue</button>
-            </div>
+            <FaXmark className="xmark" onClick={handleContinue} />
+            <ul>
+              <li>
+                Kenko creates a personalized health checkup roadmap for you.
+              </li>
+              <li>After each test, tap on the test to update your status.</li>
+              <li>Follow the roadmap to the next test location.</li>
+              <li>
+                You must complete and confirm each test before moving to the
+                next one.
+              </li>
+            </ul>
           </div>
         </section>
       </section>
