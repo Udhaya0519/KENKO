@@ -369,8 +369,8 @@ function handleContinue(){
         >
           <div className="nopopup-wrapper">
             <p>
-              Please complete this test within 15 minutes. You won't be able to
-              move to the next test.
+              Please wait until you finish your test. Don’t forget to tap 'Yes'
+              after completing the test to proceed
             </p>
             <div>
               <button onClick={handleGoBack}>Go Back</button>
