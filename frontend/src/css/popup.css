@@ -94,26 +94,26 @@
     align-items:center;
     background-color: #ffffff;
     border-radius: 9px;
-    height:60vh;
     width: 90vw;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
-    padding: 30px;
+    padding: 40px 30px;
     box-shadow: 10px 10px  15px 5px rgba(0, 0, 0, 0.3);
 }
 
 .initialpopup-wrapper >ul >li {
   margin-bottom: 10px;
+  font-size: 15px;
   
 }
 
 .xmark {
   color: #00d2ff;
  position: fixed;
-  right:20px;           /* Move to the right edge of the viewport */
-  top: 20px;
-  font-size: 30px;
+  right:10px;           /* Move to the right edge of the viewport */
+  top: 10px;
+  font-size: 20px;
   color:#3a7bd5;   
 }
