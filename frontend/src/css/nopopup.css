@@ -15,13 +15,13 @@
     align-items:center;
     background-color:white;
     border-radius: 5px;
-    height:40vh;
     width: 80vw;
     position: relative;
     top: 50%;
     margin: 0 auto;
     transform: translateY(-50%);
-    padding: 10px 30px;
+    padding: 30px 30px;
+    padding-top: 50px;
 }
 .nopopup-wrapper:before {
     content: '';
@@ -39,7 +39,7 @@
 .nopopup-wrapper >p{
   font-size:16px;
   font-family: "poppins";
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.3px;
 }
 
