@@ -285,9 +285,12 @@ function getRandomColor() {
 
 const  [ initialpopup , setinitialpopup ] = useState(false)
 
-setTimeout(()=>{
-    setinitialpopup(true)
-},4000)
+useEffect(()=>{
+setTimeout(() => {
+  setinitialpopup(true);
+}, 4000);
+
+},[])
 
 function handleContinue(){
              setinitialpopup(false);
