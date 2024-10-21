@@ -36,7 +36,7 @@ const Register = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (phonerNumber == 9940302644 && otp == 6388) {
+    if (phonerNumber == 9748573857 && otp == 4434) {
       pathput("/levels");      
     }
     setotp("");

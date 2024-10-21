@@ -56,8 +56,56 @@ const Spinner = () => {
     // Animation logic
     const circleText = document.querySelectorAll(".circle-test-text");
     const testNumberImage = document.querySelectorAll(".number-image");
-    const testNumber = [1, 2, 3];
-    let n = 5;
+    const testNumber = [1 , 2 , 3 ];
+    const dataPresent = [  ];
+    const testName = [
+      "B",                         
+      "F",
+      "E",                         
+      "G",                       
+      "H",                            
+      "I",                          
+      "J"
+    ];
+
+
+let d = 0;
+let e = 1;
+let f = 2;
+
+
+
+let clear = setInterval(()=>{
+               dataPresent.pop(d);  
+               dataPresent.pop(e);  
+               dataPresent.pop(f);
+               dataPresent.push(testName[d])   
+                dataPresent.push(testName[e]);   
+                dataPresent.push(testName[f]);   
+    d+=3
+    e+=3
+    f+=3
+  if (dataPresent[1] === undefined && dataPresent[2]===undefined) {
+            dataPresent[0]="H"
+            dataPresent[1]="I"
+            dataPresent[2]="J"
+  }
+
+    console.log(dataPresent)
+},2500)
+
+
+setTimeout(()=>{
+    clearInterval(clear)
+},15000)
+
+
+
+    let n =10;
+
+
+ 
+
 
     // Add the animate-in class initially to display the first set of text and images
     circleText.forEach((text) => text.classList.add('animate-in'));
@@ -78,9 +126,9 @@ const Spinner = () => {
           
         setTimeout(() => {
           // Update test numbers
-          testNumber[0] = n % 2 === 0 ? testNumber[0] + 1 : testNumber[0] + 2;
-          testNumber[1] = n % 2 === 0 ? testNumber[1] + 1 : testNumber[1] + 2;
-          testNumber[2] = n % 2 === 0 ? testNumber[2] + 1 : testNumber[2] + 2;
+          testNumber[0] = testNumber[0]  === 7 ? testNumber[0] = 8  :  testNumber[0]+ 3;
+          testNumber[1] = testNumber[1]  === 8 ? testNumber[1] = 9   : testNumber[1]+ 3;
+          testNumber[2] = testNumber[2]  === 9 ? testNumber[2] = 10  : testNumber[2]+ 3;
   
           // Remove animation class before updating text and images
           circleText.forEach((text) => text.classList.remove('animate-in'));
@@ -88,13 +136,12 @@ const Spinner = () => {
   
           // Short delay before updating content and re-adding animation class
           setTimeout(() => {
-            circleText[0].innerText = `Test ${testNumber[0]}`;
-            circleText[1].innerText = `Test ${testNumber[1]}`;
-            circleText[2].innerText = `Test ${testNumber[2]}`;
+            circleText[0].innerText = dataPresent[0];
+            circleText[1].innerText = dataPresent[1];
+            circleText[2].innerText = dataPresent[2];
             
             if (circleText[2].innerText === `Test ${n}`){
               setTimeout(()=>{pathput("/final")},2500)
-              console.log(1);
               
             }
             testNumberImage[0].src = `/assets/steps/image${testNumber[0]}.svg`;
@@ -106,7 +153,6 @@ const Spinner = () => {
           }, 1000);
   
           change();
-        console.log(circleText[2].innerText);
         
         }, 2500);
   
@@ -114,11 +160,9 @@ const Spinner = () => {
       }
   }
       change();
-    
-
-    
-    
+  
   }, []);
+
 
   return (
       <>
@@ -129,9 +173,9 @@ const Spinner = () => {
        <img className="number-image" src={e} style={{position: "absolute", top: "12%", left: "60%", width: "50px", height: "40px"}} alt="Image 1"/>
       <img className="number-image" src={h} style={{position: "absolute", top: "43%", left: "85%", width:"50px", height: "40px"}} alt="Image 2"/>
       <img className="number-image" src={w} style={{position: "absolute", top: "80%", left: "65%", width: "30px", height: "40px"}} alt="Image 3"/>
-      <span className="circle-test-text" style={{ position: 'absolute', top: '25%', left: '55%' }}>Test 1</span>
-      <span className="circle-test-text" style={{ position: 'absolute', top: '46%', left: '67%' }}>Test 2</span>
-      <span className="circle-test-text" style={{ position: 'absolute', top: '68%', left: '55%' }}>Test 3</span> 
+      <span className="circle-test-text" style={{ position: 'absolute', top: '23%', left: '55%' , fontSize:"50px"}}>C</span>
+      <span className="circle-test-text" style={{ position: 'absolute', top: '42%', left: '67%' ,fontSize:"50px" }}>A</span>
+      <span className="circle-test-text" style={{ position: 'absolute', top: '64%', left: '55%',fontSize:"50px" }}>D</span> 
     </div>
     </div>
     </section>

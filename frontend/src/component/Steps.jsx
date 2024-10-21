@@ -67,7 +67,7 @@ const Steps = () => {
   }, []); // Draw only once on initial render
 
   // to set Number of Test
-  const [lengthchecker, setlengthchecker] = useState(5);
+  const [lengthchecker, setlengthchecker] = useState(10);
   const [statelength, setstatelength] = useState(lengthchecker);
 
   // State to control loader visibility
@@ -326,6 +326,7 @@ function handleContinue(){
                       height="60"
                       src={`/assets/steps/${el.img}`}
                       alt=""
+                      
                     />
                     <div
                       className={
@@ -333,9 +334,10 @@ function handleContinue(){
                           ? "circle__lastInnertext"
                           : "circle__innerText"
                       }
+                      style={{marginLeft:"20px"}}
                     >
-                      <h4>{el.testName}</h4>
-                      <h4>{el.venue}</h4>
+                      <h4 style={{ fontSize: "30px" }}>{el.testName}</h4>
+                      <h4 style={{ fontSize: "25px" }}>{el.venue}</h4>
                     </div>
                     <div className="checkboxhide" value={index}>
                       <FaCheckCircle
