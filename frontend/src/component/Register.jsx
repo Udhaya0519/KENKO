@@ -36,12 +36,12 @@ const Register = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (phonerNumber == 1111 && otp == 1111) {
+    if (phonerNumber == 9940302644 && otp == 6388) {
       pathput("/levels");      
     }
     setotp("");
     setphonerNumber("");
-    setspantext(12345555);
+    setspantext(498123622);
   }
 
   return (
